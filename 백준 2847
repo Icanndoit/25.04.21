@@ -1,0 +1,22 @@
+#include<iostream>
+using namespace std;
+
+int main() {
+	int len, * arr, out = 0;
+
+	cin >> len;
+	arr = new int[len];
+	for (int i = 0; i < len; i++)
+		cin >> arr[i];
+
+	for (int i = len - 2; i >= 0; i--) {
+		while (arr[i + 1] <= arr[i])
+		{
+			arr[i]--;
+			out += 1;
+		}
+	}cout << out << endl;
+	delete[]arr;
+
+	return 0;
+}
