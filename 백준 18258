@@ -1,0 +1,45 @@
+#include<iostream>
+#include<queue>
+using namespace std;
+
+int main() {
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL);
+	queue<int>Queue;
+	int len;
+
+	cin >> len;
+	for (int i = 0; i < len; i++) {
+		string command;  cin >> command;
+		if (command == "push") {
+			int data;  cin >> data;
+			Queue.push(data);
+		}
+		else if (command == "pop") {
+			if (Queue.size() == 0)
+				cout << -1 << "\n";
+			else {
+				cout << Queue.front() << "\n";
+				Queue.pop();
+			}
+		}
+		else if (command == "size")
+			cout << Queue.size() << "\n";
+		else if (command == "empty") {
+			if (Queue.empty())
+				cout << 1 << "\n";
+			else
+				cout << 0 << "\n";
+		}
+		else if (command == "front" || command == "back") {
+			if (Queue.empty())
+				cout << -1 << "\n";
+			else if (command == "front")
+				cout << Queue.front() << "\n";
+			else
+				cout << Queue.back() << "\n";
+		}
+	}
+
+	return 0;
+}
